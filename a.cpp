@@ -1,4 +1,3 @@
-
 # include <bits/stdc++.h>
 using namespace std;
 #define boost     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
@@ -34,13 +33,55 @@ int main()
 	{	
 		cin>>n;
 		
-		ll arr[n];
+		ll pl[n],cr[n];
 		 for(ll i=0;i<n;i++)
-		 cin>>arr[i];
+		 cin>>pl[i]>>cr[i];
 		 
+		 if(pl[0]<cr[0])
+		 {
+		 	cout<<"NO\n";
+		 	continue;
+		 }
+		 int flag=0;
+		 for(int i=1;i<n;i++)
+		 {
+		 	if(pl[i]>=pl[i-1])
+		 	{
+		 		if(cr[i]<cr[i-1] || ((pl[i]==pl[i-1]) && cr[i]!=cr[i-1]))
+		 		{
+		 			flag=1;
+		 			break;
+		 		}
+		 	}
+		    if(cr[i]<cr[i-1])
+		 	{
+		 		flag=1;
+		 		break;
+		 	}
+		 	if(pl[i]< cr[i])
+		 	{
+		 		flag=1;
+		 		break;
+		 	}
+		 	if(pl[i]<pl[i-1])
+		 	{
+		 		flag=1;
+		 		break;
+		 	}
+		 	if(cr[i]-cr[i-1] < pl[i] - pl[i-1])
+		 	{
+		 		flag=1;
+		 		break;
+		 	}
+
+		 }
+		 if(flag==0)
+		 	cout<<"YES\n";
+		 else
+		 	cout<<"NO\n";
 		
  	} 
 		return 0; 
 }
 
-
+ 

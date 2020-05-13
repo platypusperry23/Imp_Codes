@@ -1,4 +1,5 @@
 
+
 # include <bits/stdc++.h>
 using namespace std;
 #define boost     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
@@ -31,16 +32,32 @@ int main()
 	ll t,n;                    
 	cin>>t;
 	while(t--)
-	{	
-		cin>>n;
-		
-		ll arr[n];
-		 for(ll i=0;i<n;i++)
-		 cin>>arr[i];
-		 
-		
+	{	ll x,k;
+		cin>>x>>k;
+		if(x==1 && k==0)
+			cout<<1<<endl;
+		else
+		{
+
+		} 
  	} 
 		return 0; 
 }
 
+    -> 1 2 3 5 6 10 15 30 
 
+
+12 -> 1 2 3 4 6 12 
+24 -> 1 2 3 4 6 8 12 24 
+28 -> 1 2 7 4 14 28   
+9  -> 1 3 9
+4  -> 1 2 4 
+5  -> 1 5 25
+343-> 1 7 49 343 
+ -> 1 5 25 125
+
+   -> 1 2 3 6
+36 -> 1 2 3 4 6 9 12 18 36
+39 -> 1 3 13 39
+3  -> 1 3 
+42 -> 1 2 3 4 6 7 12 14 21 28 42  84

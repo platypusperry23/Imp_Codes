@@ -37,7 +37,25 @@ int main()
 		ll arr[n];
 		 for(ll i=0;i<n;i++)
 		 cin>>arr[i];
-		 
+		 ll max=0;
+		 vector<ll> v;
+		 for(ll i=0;i<n-1;i++)
+		 {
+		 	if(arr[i]>arr[i+1])
+		 	{
+		 		if(max < abs(arr[i]-arr[i+1]))
+		 			max=abs(arr[i]-arr[i+1]);
+		 		arr[i+1]=arr[i];		
+		 	}
+		 }
+		 ll  x=0;
+		 while(max>0)
+		 {
+		 	ll z=pow(2,x);
+		 	max=max-z;
+		 	x++;
+		 }
+		 cout<<x<<endl;
 		
  	} 
 		return 0; 

@@ -29,18 +29,37 @@ int main()
 {
 	boost;
 	ll t,n;                    
-	cin>>t;
-	while(t--)
-	{	
-		cin>>n;
-		
-		ll arr[n];
-		 for(ll i=0;i<n;i++)
-		 cin>>arr[i];
-		 
-		
- 	} 
-		return 0; 
+	cin>>n;
+	if (n%2==0)
+		cout<<"NO\n";
+	else
+		{cout<<"YES\n";
+	ll c=1,i=1,z=0;
+	vector<ll>v1(2*n+1,0);
+	while(i<=2*n)
+	{
+		if(z==0)
+		{
+			v1[c]=i;
+			v1[c+n]=i+1;
+			i=i+2;
+			z=1;
+			c++;
+		}
+		else
+		{
+			v1[c]=i+1;
+			v1[c+n]=i;
+			z=0;
+			i=i+2;
+			c++;
+		}
+	}
+	for(int i=1;i<v1.size();i++)
+		cout<<v1[i]<<" ";
+	cout<<endl;
+	}
+return 0; 
 }
 
 

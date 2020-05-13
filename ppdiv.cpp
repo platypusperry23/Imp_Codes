@@ -12,14 +12,15 @@ using namespace std;
 #define pof       pop_front
 #define ins		  insert
 #define mxy 	  map<pair<ll, ll>, ll>  
-#define q1        1000000007
+#define hell      1000000007
 #define fl        forward_list
+#define rep(i,a,b)  for(ll i=a;i<b;i++)
 #define bin1      __builtin_popcount 
 #define map2d	  map<long long,map<long long , long long > >
 #define um		  unordered_map<ll,ll>
 ll power(ll x, ll y) 
 {
-	ll p=q1;ll res = 1; x = x % p; 
+	ll p=hell;ll res = 1; x = x % p; 
 
 	while (y > 0) {
 	if (y & 1) 
@@ -28,18 +29,31 @@ ll power(ll x, ll y)
 int main()
 {
 	boost;
-	ll t,n;                    
-	cin>>t;
+	ll t;cin>>t;	
 	while(t--)
 	{	
-		cin>>n;
-		
-		ll arr[n];
-		 for(ll i=0;i<n;i++)
-		 cin>>arr[i];
-		 
-		
- 	} 
+		ll n,k,x,y;
+		cin>>n>>k>>x>>y;
+
+		ll dp[n+2];
+		dp[0]=1;dp[1]=0;
+		rep(i,2,n+1)	
+		{
+			dp[i]=(dp[i-2]*(k-1))%hell +(dp[i-1]*(k-2))%hell;
+			dp[i]%=hell;
+			
+			//test2(i,dp[i]);
+		}
+		if(x==y)
+		cout<<dp[n-1]<<endl;
+		else
+		{
+			//test1(dp[n]);
+			ll lol=power(k-1,hell-2);
+			ll ans=(dp[n]*lol)%hell;
+			cout<<ans<<endl;
+		}
+	}
 		return 0; 
 }
 

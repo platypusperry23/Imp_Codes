@@ -1,22 +1,19 @@
-
-# include <bits/stdc++.h>
-using namespace std;
+#include <bits/stdc++.h>
+using namespace   std;
 #define boost     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 #define ll        long long 
 #define ld        long double
-#define pi        3.14	
 #define mkp       make_pair
 #define pb     	  push_back	
 #define pf     	  push_front
 #define pob       pop_back
 #define pof       pop_front
-#define ins		  insert
 #define mxy 	  map<pair<ll, ll>, ll>  
 #define q1        1000000007
-#define fl        forward_list
 #define bin1      __builtin_popcount 
 #define map2d	  map<long long,map<long long , long long > >
 #define um		  unordered_map<ll,ll>
+#define INF       0x3f3f3f3f
 ll power(ll x, ll y) 
 {
 	ll p=q1;ll res = 1; x = x % p; 
@@ -27,20 +24,64 @@ ll power(ll x, ll y)
 
 int main()
 {
-	boost;
+	
 	ll t,n;                    
 	cin>>t;
 	while(t--)
 	{	
-		cin>>n;
+		ll k;
+		cin>>n>>k;
 		
 		ll arr[n];
 		 for(ll i=0;i<n;i++)
-		 cin>>arr[i];
-		 
+			{
+				cin>>arr[i];
+			}
+			set<ll>s;
+			um mp;
+			ll g=0,eq=0;
+		for(ll i=0;i<n/2;i++)
+		{
+			ll z=arr[i]+arr[n-i-1];
+			s.insert(z);
+			mp[z]+=1;
+			if(z>k+1)
+				g++;
+			if(z==k+1)
+				eq++;
+		}
+		n=n/2;
+		ll min=(ll)1e8;
+		for(auto i:s)
+		{
+			//cout<<i<<" "<<mp[i]<<" ";
+			ll x=mp[i];
+			if(i<(k+1))
+			{
+				ll pos=(n-x)+g;
+				//cout<<pos<<endl;
+				if(min>pos)
+					min=pos;
+			}
+			else if(i>(k+1))
+			{
+
+				ll pos=n-x+(n-g-eq);
+			//	cout<<pos<<endl;
+				if(min>pos)
+					min=pos;
+			}
+
+		}
+		ll z=mp[k+1];
 		
- 	} 
-		return 0; 
+		ll pos=n-z;
+		if(min>pos)
+			min=pos;
+		cout<<min<<endl;
+	}
+
+return 0; 
 }
 
 

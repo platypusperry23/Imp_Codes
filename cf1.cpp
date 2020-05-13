@@ -32,15 +32,32 @@ int main()
 	cin>>t;
 	while(t--)
 	{	
-		cin>>n;
+		string s;
+		cin>>s;
+		n=s.length();
+		int l=0,max=1;
+		for(int i=0;i<n;i++)
+		{
+				
+			 if(s[i]=='L')
+				l++;
+			else
+			{
+				if(l+1>max)
+				max=l+1;
+				l=0;		
+			}
+		}
+			if(s[n-1]=='L')
+			{
+				if(l+1>max)
+					max=l+1;
+			}
+			cout<<max<<endl;
 		
-		ll arr[n];
-		 for(ll i=0;i<n;i++)
-		 cin>>arr[i];
-		 
-		
+			
  	} 
-		return 0; 
+ return 0; 
 }
 
 

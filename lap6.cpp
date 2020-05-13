@@ -28,19 +28,31 @@ ll power(ll x, ll y)
 int main()
 {
 	boost;
-	ll t,n;                    
+	ll t,ques;                    
 	cin>>t;
 	while(t--)
 	{	
-		cin>>n;
+		cin>>ques;
+		ll ops;
+		cin>>ops;
+		ll sets;
+		cin>>sets;
+		map2d mp;
+		ll arr[ques+1][ops+1];
+		memset(arr,0,sizeof(arr));
+		for(ll i=1;i<=ques;i++)
+		{
+			for(ll j=1;j<=sets;j++)
+			{
+				ll z;
+				cin>>z;
+				mp[i][j]=z;
+				arr[i][z]+=1;
+
+			}
+		}
 		
-		ll arr[n];
-		 for(ll i=0;i<n;i++)
-		 cin>>arr[i];
-		 
-		
- 	} 
-		return 0; 
+return 0; 
 }
 
 
