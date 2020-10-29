@@ -1,0 +1,68 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define mp make_pair
+#define pb push_back
+#define fo(i,n) for(int i=0;i<n;++i)
+#define nfo(i,a,b) for(int i=(a);i<=(b);++i)
+#define rfo(i,a,b) for(int i=(a);i>=(b);--i)
+#define ll long long
+#define vi vector< int >
+#define vll vector< long >
+#define line cout<<"\n";
+#define init(a,val) memset(a,val,sizeof(a));
+#define sayyes cout<<"YES";
+#define sayno cout<<"NO";
+#define ceill(a,b) (a+b-1)/b
+#define isko_laga_daala_toh_code_jhingalala ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+#define gcd(a,b) __gcd(a, b)
+ll lcm(ll a, ll b){
+    return a / __gcd(a, b) * b;
+}
+
+void solve(){
+    ll a, b, x, y, n;
+    cin >> a >> b >> x >> y >> n;
+    ll res1 = a-x;
+    ll res2 = b-y;
+    ll ans1, ans2;
+    ans1 = ans2 = INT_MAX;
+    if(a-x>=n){
+        ans1 = (a - n) * b;
+    }
+    else if(a-x<n){
+        if(b-y>=(n-(a-x))){
+            ans1 = x*(b - (n - (a - x)));
+        }
+        else
+        {
+            ans1 = x * y;
+        }
+    }
+
+    if(b-y>=n){
+        ans2 = (b - n) * a;
+    }
+    else if(b-y<n){
+        if(a-x>=(n-(b-y))){
+            ans2 = y*(a - (n - (b - y)));
+        }
+        else
+        {
+            ans2 = x * y;
+        }
+    }
+   
+    cout << min(ans1, ans2);
+}
+
+int main() {
+    isko_laga_daala_toh_code_jhingalala
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+        line;
+    }
+}
