@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+#define MOD (ll)1000000007 
+#define MOD2 998244353
+#define ll long long int
+#define ull unsigned long long int
+#define lf double
+#define ld long double
+#define MAX LLONG_MAX
+#define MIN LLONG_MIN 
+#define UMAX ULLONG_MAX
+#define pb push_back
+#define endl "\n"  
+using namespace std;
+
+int main() 
+{
+	
+	ll t;
+	cin>>t;	
+	while(t--)
+	{
+		ll l,r;
+		cin>>l>>r;
+		if(r-l+1>l)
+		{
+			cout<<-1<<endl;
+			continue;
+		}
+		cout<<r<<endl;
+		
+	}
+	
+	
+	return 0;
+}
