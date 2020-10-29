@@ -1,0 +1,101 @@
+#include<bits/stdc++.h>
+#define MOD (ll)1000000007 
+#define MOD2 998244353
+#define ll long long int
+#define ull unsigned long long int
+#define lf double
+#define ld long double
+#define MAX LLONG_MAX
+#define MIN LLONG_MIN 
+#define UMAX ULLONG_MAX
+#define pb push_back
+#define endl "\n"  
+using namespace std;
+ 
+long long power(long long a, long long b) 
+{
+    if (b == 0)
+        return 1;
+    long long p = power(a, b / 2);
+    if (b & 1)
+        return p * p * a;
+    else
+        return p * p;
+}
+ 
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll n;
+        cin>>n;
+        vector<ll> v(n);
+        ll even=0,odd=0;
+        ll sum=0;
+        for(ll i=0;i<n;i++)
+        {
+            cin>>v[i];
+            if(i%2==0 && v[i]==1)
+            even++;
+            if(i%2!=0 && v[i]==1)
+            odd++;
+            if(i%2==0)
+            sum=sum+v[i];
+            if(i%2!=0)
+            sum=sum-v[i];
+        }
+        if(even==odd || sum==0)
+        {
+            cout<<n<<endl;
+            for(ll i=0;i<n;i++)
+            cout<<v[i]<<" ";
+            cout<<endl;
+            continue;
+        }
+        
+        if(n-even-odd<n/2 && (even+odd)%2==0)
+        {
+            cout<<even+odd<<endl;
+            for(ll i=0;i<even+odd;i++)
+            {
+                cout<<1<<" ";
+            }
+            cout<<endl;
+            continue;
+        }
+        if(n-even-odd<n/2 && (even+odd)%2!=0)
+        {
+            cout<<even+odd-1<<endl;
+            for(ll i=0;i<even+odd-1;i++)
+            {
+                cout<<1<<" ";
+            }
+            cout<<endl;
+            continue;
+        }
+ 
+        if(n-even-odd>n/2)
+        {
+            cout<<n-even-odd<<endl;
+            for(ll i=0;i<n-even-odd;i++)
+            {
+                cout<<0<<" ";
+                cout<<endl;
+            }
+            continue;
+        }
+        if(n-even-odd==n/2)
+        {
+            cout<<n-even-odd<<endl;
+            for(ll i=0;i<n-even-odd;i++)
+            cout<<0<<endl;
+            continue;
+        }
+ 
+    }
+}
